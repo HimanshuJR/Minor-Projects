@@ -1,0 +1,51 @@
+const choices = ['Rock', 'Paper', 'Scissors'];
+const playerdisplay = document.getElementById("playerdisplay");
+const computerdisplay = document.getElementById("computerdisplay");
+const resultdisplay = document.getElementById("resultdisplay");
+const scoredisplay = document.getElementById("scoredisplay");
+
+let playerScore = 0;
+let computerScore = 0;
+
+function playgame(playerChoice) {
+    const computerChoice = choices[Math.floor(Math.random() * 3)];
+    let result = "";
+
+    if (playerChoice === computerChoice) {
+        result = "It's a tie";
+    } else {
+        switch (playerChoice) {
+            case "Rock":
+                result = (computerChoice === "Scissors") ? "You Win!" : "You Lose";
+                break;
+            case "Paper":
+                result = (computerChoice === "Rock") ? "You Win!" : "You Lose";
+                break;
+            case "Scissors":
+                result = (computerChoice === "Paper") ? "You Win!" : "You Lose";
+                break;
+        }
+    }
+
+    playerdisplay.textContent = `Player: ${playerChoice}`;
+    computerdisplay.textContent = `Computer: ${computerChoice}`;
+    resultdisplay.textContent = result;
+
+    resultdisplay.classList.remove("greentext", "redtext", "tietext");
+
+    switch (result) {
+        case "You Win!":
+            resultdisplay.classList.add("greentext");
+            playerScore++;
+            break;
+        case "You Lose":
+            resultdisplay.classList.add("redtext");
+            computerScore++;
+            break;
+        case "It's a tie":
+            resultdisplay.classList.add("tietext");
+            break;
+    }
+
+    scoredisplay.textContent = `Score - Player: ${playerScore} | Computer: ${computerScore}`;
+}
