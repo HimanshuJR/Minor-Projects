@@ -1,0 +1,111 @@
+:root {
+    --primary-color: #ff7f50;
+    --hover-color: #32cd32;
+    --font-family: Arial, Helvetica, sans-serif;
+    --font-color: #333333;
+    --win-color: rgb(6, 245, 6);
+    --lose-color: rgb(218, 3, 3);
+    --tie-color: #ffa500;
+}
+
+body {
+    font-family: var(--font-family);
+    font-weight: bold;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #881414, #233b93);
+    min-height: 100vh;
+    color: var(--font-color);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--font-color);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(4, 57, 58, 0.469);
+}
+
+.choices {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.choices button {
+    font-size: 2rem;
+    min-width: 160px;
+    margin: 10px;
+    padding: 15px 25px;
+    border-radius: 50px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.choices button:hover {
+    background: var(--hover-color);
+    transform: translateY(-px);
+    box-shadow: 0 6px 20px rgba(13, 3, 88, 0.3);
+}
+
+#playerdisplay, #computerdisplay {
+    font-size: 2.5rem;
+    margin: 10px 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#resultdisplay {
+    font-size: 4rem;
+    margin: 30px 0;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+#scoredisplay {
+    color: aqua;
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+
+.greentext {
+    color: var(--win-color);
+}
+
+.redtext {
+    color: var(--lose-color);
+}
+
+.tietext {
+    color: var(--tie-color);
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .choices button {
+        font-size: 1.5rem;
+        min-width: 120px;
+        padding: 10px 20px;
+    }
+
+    #playerdisplay, #computerdisplay {
+        font-size: 2rem;
+    }
+
+    #resultdisplay {
+        font-size: 3rem;
+    }
+    #scoredisplay {
+        font-size: 1.5rem;
+    }
+}
